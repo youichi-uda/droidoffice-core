@@ -20,7 +20,7 @@ import java.util.logging.Logger
  * 3. Subsequent calls use cache, re-verify every [REVERIFY_DAYS] days
  */
 class GumroadLicenseVerifier(
-    private val productPermalink: String,
+    private val productId: String,
     private val cache: LicenseCache? = null,
 ) {
     private val logger = Logger.getLogger(GumroadLicenseVerifier::class.java.name)
@@ -86,7 +86,7 @@ class GumroadLicenseVerifier(
             conn.connectTimeout = 10_000
             conn.readTimeout = 10_000
 
-            val body = "product_permalink=$productPermalink&license_key=$licenseKey"
+            val body = "product_id=$productId&license_key=$licenseKey"
             conn.outputStream.use { it.write(body.toByteArray()) }
 
             val responseCode = conn.responseCode
