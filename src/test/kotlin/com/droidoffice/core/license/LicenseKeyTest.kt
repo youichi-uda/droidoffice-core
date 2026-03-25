@@ -10,7 +10,7 @@ class LicenseKeyTest {
     @Test
     fun `valid license is not expired`() {
         val key = LicenseKey(
-            plan = LicensePlan.INDIE,
+            plan = LicensePlan.COMMERCIAL,
             expiresAt = LocalDate.now().plusDays(30),
             product = "droidxls",
             licensee = "test@example.com",
@@ -23,7 +23,7 @@ class LicenseKeyTest {
     @Test
     fun `expired license within grace period`() {
         val key = LicenseKey(
-            plan = LicensePlan.INDIE,
+            plan = LicensePlan.COMMERCIAL,
             expiresAt = LocalDate.now().minusDays(15),
             product = "droidxls",
             licensee = "test@example.com",
@@ -36,7 +36,7 @@ class LicenseKeyTest {
     @Test
     fun `expired license beyond grace period`() {
         val key = LicenseKey(
-            plan = LicensePlan.INDIE,
+            plan = LicensePlan.COMMERCIAL,
             expiresAt = LocalDate.now().minusDays(31),
             product = "droidxls",
             licensee = "test@example.com",

@@ -22,7 +22,7 @@ class LicenseEndToEndTest {
         val jwt = LicenseKeyGenerator.generateLicenseKey(
             privateKey = privateKey,
             product = "droidxls",
-            plan = LicensePlan.INDIE,
+            plan = LicensePlan.COMMERCIAL,
             licensee = "test@example.com",
             expiresAt = LocalDate.now().plusYears(1),
         )
@@ -30,7 +30,7 @@ class LicenseEndToEndTest {
         val validator = LicenseValidator(publicKey, "droidxls")
         val key = validator.validate(jwt)
 
-        assertEquals(LicensePlan.INDIE, key.plan)
+        assertEquals(LicensePlan.COMMERCIAL, key.plan)
         assertEquals("test@example.com", key.licensee)
         assertEquals("droidxls", key.product)
         assertFalse(key.isExpired)
@@ -41,7 +41,7 @@ class LicenseEndToEndTest {
         val jwt = LicenseKeyGenerator.generateLicenseKey(
             privateKey = privateKey,
             product = "droidxls",
-            plan = LicensePlan.STARTUP,
+            plan = LicensePlan.COMMERCIAL,
             licensee = "company@example.com",
             expiresAt = LocalDate.now().plusMonths(6),
         )
@@ -57,7 +57,7 @@ class LicenseEndToEndTest {
         val jwt = LicenseKeyGenerator.generateLicenseKey(
             privateKey = privateKey,
             product = "droidxls",
-            plan = LicensePlan.INDIE,
+            plan = LicensePlan.COMMERCIAL,
             licensee = "expired@example.com",
             expiresAt = LocalDate.now().minusDays(31),
         )
@@ -75,7 +75,7 @@ class LicenseEndToEndTest {
         val jwt = LicenseKeyGenerator.generateLicenseKey(
             privateKey = privateKey,
             product = "droiddoc",
-            plan = LicensePlan.INDIE,
+            plan = LicensePlan.COMMERCIAL,
             licensee = "test@example.com",
             expiresAt = LocalDate.now().plusYears(1),
         )

@@ -149,15 +149,8 @@ class GumroadLicenseVerifier(
     }
 
     private fun determinePlan(json: String): LicensePlan {
-        val variants = extractJsonString(json, "variants")?.lowercase() ?: ""
-        val price = extractJsonInt(json, "price")
-
-        return when {
-            variants.contains("enterprise") -> LicensePlan.ENTERPRISE
-            variants.contains("startup") || (price != null && price >= 39900) -> LicensePlan.STARTUP
-            variants.contains("indie") || (price != null && price >= 9900) -> LicensePlan.INDIE
-            else -> LicensePlan.PERSONAL
-        }
+        // Single plan: if Gumroad verified successfully, it's a commercial license
+        return LicensePlan.COMMERCIAL
     }
 
     private fun extractJsonString(json: String, key: String): String? {
