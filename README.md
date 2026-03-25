@@ -20,7 +20,7 @@ Shared infrastructure for the DroidOffice library family (DroidXLS, DroidDoc, Dr
 
 This library is **not used directly** by end users. It is a compile-time dependency of:
 
-- **[DroidXLS](https://github.com/y1uda/droidxls)** — Android Excel library (.xlsx)
+- **[DroidXLS](https://github.com/youichi-uda/droidxls)** — Android Excel library (.xlsx)
 - **DroidDoc** — Android Word library (.docx) — *planned*
 - **DroidSlide** — Android PowerPoint library (.pptx) — *planned*
 
