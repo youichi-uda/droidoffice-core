@@ -1,0 +1,4 @@
+jdk:
+  - openjdk11
+before_install:
+  - sdk_version=8.14
