@@ -4,3 +4,6 @@ build/
 .idea/
 local.properties
 *.log
+
+# Internal docs
+CLAUDE.md
